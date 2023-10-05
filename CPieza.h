@@ -22,12 +22,10 @@ public:
     int getPosY()const;
     char getColor()const;
     std::string getIcono();
-    virtual bool confirmar_mov(int posX,int posY, CPieza* casilla)=0;//mismo concepto que con el destructor virtua
+    virtual bool confirmar_mov(int posX,int posY)=0;//  Falta implementar un tercer argumento : CPieza* casilla
     //el 'virtual bool =0' indica que es una función virtual pura, y la clase CPieza se converte 
     //en una clase abstracta
-    //Las clases abstractas no pueden ser instanciadas directamente, solo
-    //son utilizadas como base para crear clases derivadas que porporcionen 
-    //implementaciones  concretas de las funciones virtuales puras.
+    //Las clases abstractas no pueden ser instanciadas directamente
     };
 
 #endif //marca en final del bloque condicional, todo el contenido entre #ifndef y #endif se incluirá u omitirá dependien

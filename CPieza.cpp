@@ -1,4 +1,4 @@
-#include "Header.h" //en header ya están incluidas todas las bilbiotecas a usar
+#include "Header.h" 
 #include "CPieza.h"
 
 CPieza::CPieza(): posX{0}, posY{0},color{'B'}, icono {"pB"}{}
