@@ -22,7 +22,7 @@ public:
     int getPosY()const;
     char getColor()const;
     std::string getIcono();
-    virtual bool confirmar_mov(int posX,int posY)=0;//  Falta implementar un tercer argumento : CPieza* casilla
+    virtual bool confirmar_mov(int posX,int posY, CPieza* casilla)=0;//  Falta implementar un tercer argumento : CPieza* casilla
     //el 'virtual bool =0' indica que es una función virtual pura, y la clase CPieza se converte 
     //en una clase abstracta
     //Las clases abstractas no pueden ser instanciadas directamente
