@@ -11,15 +11,15 @@
 #include <vector>
 #include <iostream>
 #include "board.h"
-//#include "piece.h"
+#include "piece.h"
 using namespace std;
 
 class ChessGame: public sf::Drawable{
 private:
     Board board;
-    /*
     array<Piece, 16> whitePieces;
     array<Piece, 16> blackPieces;
+    /*
     Piece* selectedPiece;
     vector<sf::RectangleShape> possibleMovesSquares;
     string lastMove;

@@ -1,8 +1,8 @@
 # Lista de archivos fuente
-SOURCES = main.cpp chessGame.cpp board.cpp 
+SOURCES = main.cpp chessGame.cpp board.cpp piece.cpp
 
 # Lista de archivos de encabezado
-HEADERS = chessGame.h board.h 
+HEADERS = chessGame.h board.h piece.h
 
 # Nombre del ejecutable
 EXECUTABLE = main
