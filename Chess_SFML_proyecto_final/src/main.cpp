@@ -6,7 +6,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "chessGame.h"
-
+using namespace std;
 
 int main(){
     ChessGame chess(sf::Color(235,236,208),sf::Color(0x77, 0x95, 0x56));
@@ -26,13 +26,14 @@ int main(){
             if(event.type == sf::Event::MouseButtonPressed){
                 if(event.mouseButton.button == sf::Mouse::Left){
                     if((0 <= event.mouseButton.x) && (event.mouseButton.x <= 512) && (0 <= event.mouseButton.y) && (event.mouseButton.y <= 512)){
-                        unsigned int buttonPos{(event.mouseButton.x/64) + ((event.mouseButton.y/64) * (8 * (512/window.getSize().y)))};//obtiene que cuadrado ha sido seleccionado de matriz_tabla
-                         /*                      
+                        unsigned int buttonPos{(event.mouseButton.x/64) + ((event.mouseButton.y/64) * 8)};//obtiene que cuadrado ha sido seleccionado de matriz_tabla
+                        
+                                             
                         if(!chess.getSelected())
                             chess.selectPiece(buttonPos);
                         else
                             chess.moveSelected(buttonPos);
-                        */
+                        
                         
                     }
                     else if((517 <= event.mouseButton.x) && (event.mouseButton.x <= 763) && (5 <= event.mouseButton.y) && (event.mouseButton.y <= 45)){

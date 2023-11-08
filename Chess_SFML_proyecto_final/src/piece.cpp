@@ -24,8 +24,8 @@ void Piece::setPiece(char type, bool player, int pos, bool moved){
 void Piece::move(){
     if(m_position<=-1 || 64<=m_position){
         m_position = -1;
-        m_sprite.setColor(sf::Color(0x00000000));
-        m_sprite.setPosition(sf::Vector2f((m_position % 8) * 64.f + 32.f, (m_position / 8) * 64.f + 32.f));
+        m_sprite.setColor(sf::Color(0x00000000));//transparente
+        m_sprite.setPosition(sf::Vector2f((m_position % 8) * 64.f + 32.f, (m_position / 8) * 64.f + 32.f)); //con el resto obtenemos el indice de columna, con la div el indice de fila
         possibleMoves.clear();
         m_moved = true;
     }
@@ -79,5 +79,9 @@ void Piece::setTexture(){
             break;
     }
     m_sprite.setOrigin(sf::Vector2f(m_sprite.getTexture()->getSize().x/2 , m_sprite.getTexture()->getSize().y/2));//definimos el centro de la textura, el origen donde se realizaran transformaciones
-    m_sprite.setScale(sf::Vector2f(0.150f,0.150)); //la sprite se escala a 0.375 veces su tamaño original, se hace mas pequeña
+    m_sprite.setScale(sf::Vector2f(0.150f,0.150)); //la sprite se escala a 0.150 veces su tamaño original, se hace mas pequeña
 }
+
+void Piece::draw(sf::RenderTarget& target, sf::RenderStates states) const{
+        target.draw(m_sprite);  
+    }

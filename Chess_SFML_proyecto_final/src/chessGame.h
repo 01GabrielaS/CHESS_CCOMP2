@@ -19,8 +19,10 @@ private:
     Board board;
     array<Piece, 16> whitePieces;
     array<Piece, 16> blackPieces;
+    sf::RectangleShape selectionBorder;
+    
+    Piece* selectedPiece; //seguira la pieza seleccionada y la usaremos en todo el codigo sin necesidad de copiar toda la info de la pieza
     /*
-    Piece* selectedPiece;
     vector<sf::RectangleShape> possibleMovesSquares;
     string lastMove;
     */
@@ -34,12 +36,12 @@ private:
     
 
     bool selected;
-    bool playerTurn; // true = White turn, false = Black Turn
+    bool playerTurn; // true = White , false = Black 
     bool playerTurnCheck;
     bool mate;
     int turn;
 
-    void createMovesSquares();
+    void createSelectSquare();
     /*
     void calcPossibleMoves();
     void calcKingMoves(Piece* tmpPiece);
@@ -61,9 +63,13 @@ private:
 public:
     ChessGame(sf::Color bordL_col, sf::Color bordD_col);
 
-    bool getSelected(){return selected;}
+    bool getSelected(){
+        return selected;
+    }
 
-    bool getMate(){return mate;}
+    bool getMate(){
+        return mate;
+    }
 
     bool selectPiece(int pos);
 

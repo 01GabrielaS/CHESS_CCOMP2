@@ -45,11 +45,6 @@ void ChessGame::restart(){
         blackPieces[i].setPiece('P', false, 15 - (i-8) );
     }
 
-    //calcPossibleMoves();
-
-   // textLastMove.setString(" ");
-
-
 }
 
 void ChessGame::draw(sf::RenderTarget& target, sf::RenderStates states) const{
@@ -62,6 +57,84 @@ void ChessGame::draw(sf::RenderTarget& target, sf::RenderStates states) const{
         target.draw(whitePieces[i]);
         target.draw(blackPieces[i]);
     }
+
+    if (selectedPiece != NULL && selected) {
+        target.draw(selectionBorder);
+    }
+}
+
+bool ChessGame::selectPiece(int pos){
+    // Reiniciar selección anterior
+    selectedPiece = NULL;
+    selected = false;
+
+
+    for (int i=0;i<16;i++){
+        if(playerTurn){
+            if (whitePieces[i].getPosition()==pos){
+            selectedPiece = &whitePieces[i];
+            selected = true;
+            break;
+            }
+        }
+        else{
+            if (blackPieces[i].getPosition()==pos){
+            selectedPiece = &blackPieces[i];
+            selected=true;
+            break;
+            }
+        }
+             
+        selected=false;
+    }
+
+    if (!selected){
+        selectedPiece=NULL;
+        return selected;
+    }
+
+    createSelectSquare();
+    return selected;
 }
 
 
+void ChessGame::createSelectSquare(){
+    sf::RectangleShape tmp;
+   
+        selectionBorder.setSize(sf::Vector2f(64, 64)); // Tamaño del cuadro
+        selectionBorder.setFillColor(sf::Color::Transparent); // Sin relleno
+        selectionBorder.setOutlineColor(sf::Color::Yellow); // Contorno rojo
+        selectionBorder.setOutlineThickness(-3.f); // Grosor del contorno
+        int x = (selectedPiece->getPosition() % 8) * 64;
+        int y = (selectedPiece->getPosition() / 8) * 64;
+        selectionBorder.setPosition(x,y);
+  
+    
+
+}
+
+
+void ChessGame::moveSelected(int pos){
+    selectedPiece->setPosition(pos);
+
+    for(int i=0; i<16; i++){
+            if(selectedPiece->getPlayer()){ 
+                if(blackPieces[i].getPosition() == pos){
+                    blackPieces[i].setPosition(-1);
+                    break;
+                }
+            }
+            else{ 
+                if(whitePieces[i].getPosition() == pos){
+                    whitePieces[i].setPosition(-1);
+                    break;
+                }
+            }
+    }
+
+    playerTurn = !playerTurn; 
+
+    selectedPiece = NULL;
+    selected = false;
+
+}

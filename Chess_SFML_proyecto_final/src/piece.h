@@ -1,7 +1,3 @@
-/*
-    This header file contains the Piece class.
-*/
-
 #ifndef _PIECE_H
 #define _PIECE_H
 
@@ -24,29 +20,27 @@ public:
     void setPiece(char type, bool player, int pos, bool moved=false);
 
     void setType(char ch){m_type = ch; setTexture();}
-    char getType()       {return m_type;}
+    char getType(){return m_type;}
 
     void setPlayer(bool bl){m_player = bl; setTexture();}
-    bool getPlayer()       {return m_player;}
+    bool getPlayer(){return m_player;}
 
-    void setPosition(int pos){m_position = pos; move();}
-    int getPosition()        {return m_position;}
+    void setPosition(int pos){
+        m_position = pos; 
+        move();
+    }
+    int getPosition(){return m_position;}
 
     void setMoved(bool moved){m_moved = moved;}
-    bool getMoved()           {return m_moved;}
+    bool getMoved(){return m_moved;}
 
     void setEnPassant(int x){enPassant = x;}
-    int getEnPassant()      {return enPassant;}
-
-
-
+    int getEnPassant(){return enPassant;}
 
     std::vector<int>& getPossibleMoves(){return possibleMoves;}
     std::vector<int>& getDangerMoves(){return dangerMoves;}
 
-
-
-    
+   
     static void loadTextures();
     
     //en toda la aplicación, independientemente de cuántas instancias de Piece se creen.
@@ -83,9 +77,7 @@ private:
     void setTexture();
 
     void move();
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const{
-        target.draw(m_sprite);  
-    }
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };
 
 #endif

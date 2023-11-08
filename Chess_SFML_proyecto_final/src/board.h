@@ -16,15 +16,17 @@ public:
 
     Board(sf::Color l_col = sf::Color::White, sf::Color d_col = sf::Color::Black); //toma dos argumentos por defecto
     
-    // Member function that sets Board stuff, can choose square colors in parameters
+    // funcion miembro que establece board , se puede elegir los colores
     void load(sf::Color l_col = sf::Color::White, sf::Color d_col = sf::Color::Black);
 
 private:
 
     array<sf::RectangleShape, 64> matriz_tabla; //array que almacena los 64 cuadrados del tablero
     
-    // Draw class on SFML Window
+    //Dibuja tablero en ventana window
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;//dibuja cuadrados de tablero
+
+    
     //sobreescribe la funcion draw de la clase base drawable
     //& target hace referencia a lienzo, o ventana en este caso, se pasa como referencia para que los cambios persistan incluso despues de la funcion
     //render states es una estructura que contiene una serie de configuraciones que afectan cómo se realiza el dibujo
