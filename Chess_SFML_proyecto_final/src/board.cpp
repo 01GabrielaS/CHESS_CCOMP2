@@ -1,7 +1,3 @@
-/*
-    This code file contains member functions of board.h
-*/
-
 #include "board.h"
 
 Board::Board(sf::Color l_col, sf::Color d_col){

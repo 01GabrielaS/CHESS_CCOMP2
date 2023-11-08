@@ -5,7 +5,6 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <vector>
-//#include "pieceTextures.h"
 using namespace std;
 class Piece : public sf::Drawable{
 
@@ -55,9 +54,9 @@ private:
 
 
     char m_type; //'K'=King , 'Q' = Queen , 'R' = Rook , 'B' = Bishop , 'N' = Knight , 'P' = Pawn
-    bool m_player; // true == White , false == Black
-    int m_position; // 0-63 board, -1 dead
-    int enPassant; // chess rule for pawn 
+    bool m_player; // true = blancas , false = negras
+    int m_position; // 0-63 escaques, -1 muerto
+    int enPassant; // regla de chess, evaluar si implementarlo
     bool m_moved;
 
    //texture pieces//  static Esto significa que solo habrá una copia de cada textura 

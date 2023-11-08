@@ -1,7 +1,3 @@
-/*
-    This code file contains member functions of chessGame.h
-*/
-
 #include "chessGame.h"
  
 
@@ -99,8 +95,7 @@ bool ChessGame::selectPiece(int pos){
 
 
 void ChessGame::createSelectSquare(){
-    sf::RectangleShape tmp;
-   
+ 
         selectionBorder.setSize(sf::Vector2f(64, 64)); // Tamaño del cuadro
         selectionBorder.setFillColor(sf::Color::Transparent); // Sin relleno
         selectionBorder.setOutlineColor(sf::Color::Yellow); // Contorno rojo

@@ -1,8 +1,3 @@
-/*
-    This code file (main.cpp) contains the main function that runs the game
-    all libraries that must be used have to be included here.
-*/
-
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "chessGame.h"

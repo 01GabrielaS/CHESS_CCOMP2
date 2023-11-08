@@ -1,7 +1,3 @@
-/*
-    This header file contains the Board class.
-*/
-
 #ifndef _BOARD_H
 #define _BOARD_H
 
