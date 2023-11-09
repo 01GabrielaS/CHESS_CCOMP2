@@ -1,13 +1,8 @@
 # ninja log v5
-2	393	7211166468183983	build.ninja	a2676928c2652a9f
-19	1837	7208360122079139	CMakeFiles/PruebaCLion.dir/board.cpp.obj	9ab314c4959e5c1e
-12	1549	7211050039954251	CMakeFiles/PruebaCLion.dir/main.cpp.obj	1ac9d529b63d0cb8
-16	1677	7211059444382354	CMakeFiles/PruebaCLion.dir/chessGame.cpp.obj	2438dd67d84dd2b5
-1678	4382	7211059471114322	PruebaCLion.exe	889f13932f03696c
-31	1863	7209233833253818	CMakeFiles/PruebaCLion.dir/pieceTextures.cpp.obj	b39c8f1867930daa
-18	2626	7211165189116393	CMakeFiles/PruebaCLion.dir/piece.cpp.obj	7df920ff82a4c0fc
+2	393	7211906459893539	build.ninja	a2676928c2652a9f
 6	1593	7211166518621042	CMakeFiles/PruebaCLion.dir/board.cpp.obj	9ab314c4959e5c1e
-12	1788	7211166520604613	CMakeFiles/PruebaCLion.dir/main.cpp.obj	1ac9d529b63d0cb8
-18	1967	7211166522403418	CMakeFiles/PruebaCLion.dir/chessGame.cpp.obj	2438dd67d84dd2b5
-1968	3191	7211166534571890	PruebaCLion.exe	889f13932f03696c
-5	1167	7211167539788217	CMakeFiles/PruebaCLion.dir/main.cpp.obj	1ac9d529b63d0cb8
+4	1509	7211902507426366	CMakeFiles/PruebaCLion.dir/main.cpp.obj	1ac9d529b63d0cb8
+14	1900	7211902511597631	CMakeFiles/PruebaCLion.dir/chessGame.cpp.obj	2438dd67d84dd2b5
+1900	2941	7211902522165455	PruebaCLion.exe	889f13932f03696c
+31	1863	7209233833253818	CMakeFiles/PruebaCLion.dir/pieceTextures.cpp.obj	b39c8f1867930daa
+10	1476	7211902506576950	CMakeFiles/PruebaCLion.dir/piece.cpp.obj	7df920ff82a4c0fc

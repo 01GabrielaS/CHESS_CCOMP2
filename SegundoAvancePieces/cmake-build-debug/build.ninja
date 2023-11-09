@@ -89,6 +89,14 @@ build CMakeFiles/PruebaCLion.dir/pieceTextures.cpp.obj: CXX_COMPILER__PruebaCLio
   OBJECT_DIR = CMakeFiles\PruebaCLion.dir
   OBJECT_FILE_DIR = CMakeFiles\PruebaCLion.dir
 
+build CMakeFiles/PruebaCLion.dir/Piece_hijas.cpp.obj: CXX_COMPILER__PruebaCLion_unscanned_Debug D$:/PruebaCLion/Piece_hijas.cpp || cmake_object_order_depends_target_PruebaCLion
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\PruebaCLion.dir\Piece_hijas.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -ID:/Proyecto/SFML/SFML-2.5.1/include/SFML -isystem C:/SFML/include
+  OBJECT_DIR = CMakeFiles\PruebaCLion.dir
+  OBJECT_FILE_DIR = CMakeFiles\PruebaCLion.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target PruebaCLion
@@ -97,7 +105,7 @@ build CMakeFiles/PruebaCLion.dir/pieceTextures.cpp.obj: CXX_COMPILER__PruebaCLio
 #############################################
 # Link the executable PruebaCLion.exe
 
-build PruebaCLion.exe: CXX_EXECUTABLE_LINKER__PruebaCLion_Debug CMakeFiles/PruebaCLion.dir/main.cpp.obj CMakeFiles/PruebaCLion.dir/board.cpp.obj CMakeFiles/PruebaCLion.dir/chessGame.cpp.obj CMakeFiles/PruebaCLion.dir/piece.cpp.obj CMakeFiles/PruebaCLion.dir/pieceTextures.cpp.obj | C$:/SFML/lib/libsfml-system-s-d.a C$:/SFML/lib/libsfml-window-s-d.a C$:/SFML/lib/libsfml-graphics-s-d.a C$:/SFML/lib/libsfml-audio-s-d.a C$:/SFML/lib/libsfml-window-s-d.a C$:/SFML/lib/libfreetype.a C$:/SFML/lib/libsfml-system-s-d.a C$:/SFML/lib/libopenal32.a C$:/SFML/lib/libvorbisfile.a C$:/SFML/lib/libvorbisenc.a C$:/SFML/lib/libvorbis.a C$:/SFML/lib/libogg.a C$:/SFML/lib/libFLAC.a
+build PruebaCLion.exe: CXX_EXECUTABLE_LINKER__PruebaCLion_Debug CMakeFiles/PruebaCLion.dir/main.cpp.obj CMakeFiles/PruebaCLion.dir/board.cpp.obj CMakeFiles/PruebaCLion.dir/chessGame.cpp.obj CMakeFiles/PruebaCLion.dir/piece.cpp.obj CMakeFiles/PruebaCLion.dir/pieceTextures.cpp.obj CMakeFiles/PruebaCLion.dir/Piece_hijas.cpp.obj | C$:/SFML/lib/libsfml-system-s-d.a C$:/SFML/lib/libsfml-window-s-d.a C$:/SFML/lib/libsfml-graphics-s-d.a C$:/SFML/lib/libsfml-audio-s-d.a C$:/SFML/lib/libsfml-window-s-d.a C$:/SFML/lib/libfreetype.a C$:/SFML/lib/libsfml-system-s-d.a C$:/SFML/lib/libopenal32.a C$:/SFML/lib/libvorbisfile.a C$:/SFML/lib/libvorbisenc.a C$:/SFML/lib/libvorbis.a C$:/SFML/lib/libogg.a C$:/SFML/lib/libFLAC.a
   FLAGS = -g
   LINK_LIBRARIES = C:/SFML/lib/libsfml-system-s-d.a  C:/SFML/lib/libsfml-window-s-d.a  C:/SFML/lib/libsfml-graphics-s-d.a  C:/SFML/lib/libsfml-audio-s-d.a  C:/SFML/lib/libsfml-window-s-d.a  -lgdi32  -lOpenGL32  C:/SFML/lib/libfreetype.a  C:/SFML/lib/libsfml-system-s-d.a  -lwinmm  C:/SFML/lib/libopenal32.a  C:/SFML/lib/libvorbisfile.a  C:/SFML/lib/libvorbisenc.a  C:/SFML/lib/libvorbis.a  C:/SFML/lib/libogg.a  C:/SFML/lib/libFLAC.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\PruebaCLion.dir
