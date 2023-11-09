@@ -77,11 +77,6 @@ void ChessGame::updateInfo(){
 }
 
 
-/*void ChessGame::setTarget(sf::RenderTarget& target) {
-    this->target = &target;
-}
-*/
-
 void ChessGame::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     target.clear(sf::Color::Black);
 
@@ -92,21 +87,12 @@ void ChessGame::draw(sf::RenderTarget& target, sf::RenderStates states) const{
         target.draw(whitePieces[i]);
         target.draw(blackPieces[i]);
     }
+
+    if (selectedPiece != NULL && selected) {
+        target.draw(selectionBorder);
+    }
 }
 
-void ChessGame::createMovesSquares() {
-    if(selectedPiece == NULL)
-        return;
-
-    sf::RectangleShape tmp;
-    tmp.setPosition(sf::Vector2f((selectedPiece->getPosition() % 8) * 64.f , (selectedPiece->getPosition() / 8) * 64.f));
-    tmp.setSize(sf::Vector2f(64.f, 64.f));
-    tmp.setFillColor(sf::Color(0x00000000));
-    tmp.setOutlineColor(sf::Color::Red);
-    tmp.setOutlineThickness(-3.f);
-    window->draw(tmp);
-    return;
-}
 
 
 bool ChessGame::selectPiece(int pos){
@@ -138,100 +124,42 @@ bool ChessGame::selectPiece(int pos){
     return selected;
 }
 
+void ChessGame::createMovesSquares() {
+    if(selectedPiece == NULL)
+        return;
+
+    selectionBorder.setSize(sf::Vector2f(64, 64)); // Tamaño del cuadro
+    selectionBorder.setFillColor(sf::Color::Transparent); // Sin relleno
+    selectionBorder.setOutlineColor(sf::Color::Yellow); // Contorno rojo
+    selectionBorder.setOutlineThickness(-3.f); // Grosor del contorno
+    int x = (selectedPiece->getPosition() % 8) * 64;
+    int y = (selectedPiece->getPosition() / 8) * 64;
+    selectionBorder.setPosition(x,y);
+
+}
+
+
 void ChessGame::moveSelected(int pos){
     selectedPiece->setPosition(pos);
-    for(int i=0; i<16;i++){
+
+    for(int i=0; i<16; i++){
         if(selectedPiece->getPlayer()){
-            if(blackPieces[i].getPosition()==pos){
+            if(blackPieces[i].getPosition() == pos){
                 blackPieces[i].setPosition(-1);
                 break;
             }
         }
         else{
-            if(whitePieces[i].getPosition()==pos){
+            if(whitePieces[i].getPosition() == pos){
                 whitePieces[i].setPosition(-1);
                 break;
             }
         }
     }
-    playerTurn=!playerTurn;
-    selectedPiece=NULL;
-    selected=false;
-}
 
-void ChessGame::calcKingMoves(Piece* tmpPiece){
+    playerTurn = !playerTurn;
 
-    int piecePos{tmpPiece->getPosition()};
-    tmpPiece->getPossibleMoves().clear();
-
-    if((piecePos / 8) != 0){
-        tmpPiece->getPossibleMoves().push_back(piecePos - 8);
-        if((piecePos % 8) != 0)
-            tmpPiece->getPossibleMoves().push_back(piecePos - 9);
-        if((piecePos % 8) != 7)
-            tmpPiece->getPossibleMoves().push_back(piecePos - 7);
-    }
-    if((piecePos / 8) != 7){
-        tmpPiece->getPossibleMoves().push_back(piecePos + 8);
-        if((piecePos % 8) != 0)
-            tmpPiece->getPossibleMoves().push_back(piecePos + 7);
-        if((piecePos % 8) != 7)
-            tmpPiece->getPossibleMoves().push_back(piecePos + 9);
-    }
-    if((piecePos % 8) != 0)
-        tmpPiece->getPossibleMoves().push_back(piecePos - 1);
-    if((piecePos % 8) != 7)
-        tmpPiece->getPossibleMoves().push_back(piecePos + 1);
+    selectedPiece = NULL;
+    selected = false;
 
 }
-
-void ChessGame::calcKnightMoves(Piece* tmpPiece){
-
-    tmpPiece->getPossibleMoves().clear();
-
-    int piecePos{tmpPiece->getPosition()};
-
-    if((piecePos / 8) != 0 ){
-        if((piecePos % 8) >= 2 )
-            tmpPiece->getPossibleMoves().push_back(piecePos - 10);
-        if( (piecePos % 8) <= 5 )
-            tmpPiece->getPossibleMoves().push_back(piecePos - 6);
-        if((piecePos / 8) != 1){
-            if((piecePos % 8) >= 1 )
-                tmpPiece->getPossibleMoves().push_back(piecePos - 17);
-            if((piecePos % 8) <= 6 )
-                tmpPiece->getPossibleMoves().push_back(piecePos - 15);
-        }
-    }
-    if((piecePos / 8) != 7){
-        if((piecePos % 8) >= 2 )
-            tmpPiece->getPossibleMoves().push_back(piecePos + 6);
-        if( (piecePos % 8) <= 5 )
-            tmpPiece->getPossibleMoves().push_back(piecePos + 10);
-        if((piecePos / 8) != 6){
-            if((piecePos % 8) >= 1 )
-                tmpPiece->getPossibleMoves().push_back(piecePos + 15);
-            if((piecePos % 8) <= 6 )
-                tmpPiece->getPossibleMoves().push_back(piecePos + 17);
-        }
-    }
-
-    tmpPiece->getDangerMoves().clear();
-
-    for(int i = 0; i < tmpPiece->getPossibleMoves().size(); i++){
-
-        if(!playerTurn){
-            if( (tmpPiece->getPossibleMoves().at(i)) == blackPieces[3].getPosition() )
-                tmpPiece->getDangerMoves().push_back( tmpPiece->getPossibleMoves().at(i) );
-        }
-        else{
-            if( (tmpPiece->getPossibleMoves().at(i)) == whitePieces[4].getPosition() )
-                tmpPiece->getDangerMoves().push_back( tmpPiece->getPossibleMoves().at(i) );
-        }
-
-    }
-
-    tmpPiece->getDangerMoves().push_back( tmpPiece->getPosition() );
-
-}
-

@@ -11,7 +11,9 @@ add_executable(PruebaCLion main.cpp
         piece.h
         piece.cpp
         pieceTextures.h
-        pieceTextures.cpp)
+        pieceTextures.cpp
+        Piece_hijas.h
+        Piece_hijas.cpp)
 
 set(SFML_STATIC_LIBRARIES TRUE)
 set(SFML_DIR C:/SFML/lib/cmake/SFML)

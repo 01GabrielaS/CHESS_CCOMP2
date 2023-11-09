@@ -9,7 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <vector>
-//#include "pieceTextures.h"
+#include "pieceTextures.h"
 using namespace std;
 class Piece : public sf::Drawable{
 
@@ -17,9 +17,12 @@ public:
 
     Piece(char type='P', bool player=true, int pos=-1, bool moved=false)
     : m_type{type}, m_player{player},
-    m_position{-1}, m_moved{true}, enPassant{-1}{ 
+    m_position{-1}, m_moved{true}{
 
     }
+    static void loadTextures();
+
+    virtual void calcPossibleMoves(Piece* tmpPiece);
 
     void setPiece(char type, bool player, int pos, bool moved=false);
 
@@ -35,21 +38,11 @@ public:
     void setMoved(bool moved){m_moved = moved;}
     bool getMoved()           {return m_moved;}
 
-    void setEnPassant(int x){enPassant = x;} //En Passant=capturar las piezas
-    int getEnPassant()      {return enPassant;}
-
-
-
 
     std::vector<int>& getPossibleMoves(){return possibleMoves;}
     std::vector<int>& getDangerMoves(){return dangerMoves;}
     std::string toString();
 
-
-    static void loadTextures();
-    
-    //en toda la aplicación, independientemente de cuántas instancias de Piece se creen.
-    
 
 private:
     sf::Sprite m_sprite;
@@ -62,7 +55,6 @@ private:
     char m_type; //'K'=King , 'Q' = Queen , 'R' = Rook , 'B' = Bishop , 'N' = Knight , 'P' = Pawn
     bool m_player; // true == White , false == Black
     int m_position; // 0-63 board, -1 dead
-    int enPassant; // chess rule for pawn 
     bool m_moved;
 
    //texture pieces//  static Esto significa que solo habrá una copia de cada textura 
